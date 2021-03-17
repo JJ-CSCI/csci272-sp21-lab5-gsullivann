@@ -6,6 +6,45 @@
 
 // Write the assignment code here
 
+class Real{
+private:
+  double real;
+public: 
+   Real(double real){
+    this->real = real;
+  }
+
+  double GetReal(){ return real;}
+
+  Real operator+(Real& r) const {
+    r = real + this->real;
+    return r;
+  }
+  
+};
+
+class Complex: public Real {
+private:
+  double imaginary;
+public:
+  Complex( double c1 = 0.0, double c2 = 0.0);
+
+  double GetImaginary() { return imaginary; }
+
+  Complex operator +(Complex& c) const {}
+};
+
+class Surreal: public Complex {
+private:
+  double surreal;
+public:
+  Surreal( double c1 = 0, double c2 = 0, double c3 = 0);
+
+  double GetSurreal() { return surreal; }
+
+  Surreal operator +(Surreal& s) const {}
+
+};
 
 //------------------------------
 //   DO NOT MODIFY TEST CASES

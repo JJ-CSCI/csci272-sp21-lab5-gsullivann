@@ -10,13 +10,13 @@ class Real{
 private:
   double real;
 public: 
-   Real(double real){
+   Real(double real = 0.0){
     this->real = real;
   }
 
-  double GetReal(){ return real;}
+  double GetReal() { return real;}
 
-  Real operator+(Real& r) const {
+  Real operator+(Real & r) const {
     r = real + this->real;
     return r;
   }
@@ -31,7 +31,7 @@ public:
 
   double GetImaginary() { return imaginary; }
 
-  Complex operator +(Complex& c) const {}
+  Complex operator +(Complex & c) const {}
 };
 
 class Surreal: public Complex {
@@ -42,7 +42,7 @@ public:
 
   double GetSurreal() { return surreal; }
 
-  Surreal operator +(Surreal& s) const {}
+  Surreal operator +(Surreal & s) const {}
 
 };
 

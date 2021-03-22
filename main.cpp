@@ -6,44 +6,42 @@
 
 // Write the assignment code here
 
-class Real{
-private:
-  double real;
+class Real {
+protected:
+  double a;
 public: 
-   Real(double real = 0.0){
-    this->real = real;
-  }
+  Real(double x):  a{x} {}
+  double GetReal() { return a;}
 
-  double GetReal() { return real;}
-
-  Real operator+(Real & r) const {
-    r = real + this->real;
-    return r;
+  Real operator*(double s) {
+    Real res{a*s};
+    return res;
   }
-  
 };
 
 class Complex: public Real {
-private:
-  double imaginary;
+protected:
+  double b;
 public:
-  Complex( double c1 = 0.0, double c2 = 0.0);
-
-  double GetImaginary() { return imaginary; }
-
-  Complex operator +(Complex & c) const {}
+  Complex( double x, double y) : Real(x), b{y} {}
+  //Real(x) -> x=a , b{y} -> y=b
+  double GetImaginary() {return b; }
+  Complex operator*(double s) {
+    Complex res{a*s, b*s};
+    return res;
+  }
 };
 
 class Surreal: public Complex {
-private:
-  double surreal;
+protected:
+  double c;
 public:
-  Surreal( double c1 = 0, double c2 = 0, double c3 = 0);
-
-  double GetSurreal() { return surreal; }
-
-  Surreal operator +(Surreal & s) const {}
-
+  Surreal( double x, double y, double z) : Complex(x,y), c{z} {}
+  double GetSurreal() { return c; }
+  Surreal operator *(double s) {
+    Surreal res{a*s, b*s, c*s};
+    return res;
+  }
 };
 
 //------------------------------
